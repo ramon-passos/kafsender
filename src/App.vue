@@ -11,7 +11,13 @@
 
       <div>
         <label for="message">Message (JSON):</label>
-        <textarea v-model="message" placeholder="Enter JSON message"></textarea>
+        <codemirror
+          v-model="message"
+          :style="{ height: '400px' }"
+          :autofocus="true"
+          :extensions="extensions"
+          @update:model-value="onEditorChange"
+        />
       </div>
 
       <button type="submit">Submit</button>
@@ -21,13 +27,23 @@
 
 <script>
 import axios from 'axios'
+import { Codemirror } from 'vue-codemirror'
+import { json } from '@codemirror/lang-json'
+import { oneDark } from '@codemirror/theme-one-dark'
 
 export default {
+  components: {
+    Codemirror
+  },
   data() {
     return {
       topics: [],
       selectedTopic: '',
-      message: ''
+      message: '{}',
+      extensions: [
+        json(),
+        oneDark,
+      ]
     }
   },
   mounted() {
@@ -41,6 +57,9 @@ export default {
       } catch (error) {
         console.error('Error fetching topics:', error)
       }
+    },
+    onEditorChange(value) {
+      this.message = value
     },
     async submitMessage() {
       try {

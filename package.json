@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --port 9500",
+    "serve": "vue-cli-service serve --port 9500 --host 0.0.0.0",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
     "axios": "^1.7.7",
+    "codemirror": "^6.0.1",
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "kafkajs": "^2.2.4",
-    "vue": "^3.2.13"
+    "vue": "^3.2.13",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
