@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve --port 9500 --host 0.0.0.0",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "kafka-api": "node kafka-api.js"
+    "kafka-api": "node ./kafka/kafka-api.js",
+    "sample-consumer": "node ./kafka/sample-consumer.js"
   },
   "dependencies": {
     "@codemirror/lang-json": "^6.0.1",
