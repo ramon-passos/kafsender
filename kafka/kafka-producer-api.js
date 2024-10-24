@@ -6,8 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const producer = kafka.producer();
-
 app.get('/topics', async (_req, res) => {
   const admin = kafka.admin()
   await admin.connect()
@@ -19,6 +17,7 @@ app.get('/topics', async (_req, res) => {
 app.post('/publish', async (req, res) => {
   const { topic, message } = req.body;
   try {
+    const producer = kafka.producer();
     await producer.connect();
     await producer.send({
       topic,
