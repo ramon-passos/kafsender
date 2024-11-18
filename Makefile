@@ -4,4 +4,4 @@ start-web:
 
 start-api:
 	npm install
-	npm run start
+	npm run kafka-api
