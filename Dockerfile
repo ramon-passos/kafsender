@@ -4,6 +4,8 @@ RUN mkdir -p /kafsender
 
 WORKDIR /kafsender
 
+RUN apk add make
+
 COPY . .
 
 RUN npm install
